@@ -1,12 +1,12 @@
-name: Tác Vụ Triển Khai Thủ Công
+name: Test Runner Tự Host
 
-# Định nghĩa các sự kiện kích hoạt (Ở đây là thủ công)
+# 1. Định nghĩa các sự kiện kích hoạt (Ở đây là thủ công)
 on:
   workflow_dispatch:
 
-# KHỐI JOBS BẮT BUỘC
+# 2. KHỐI JOBS BẮT BUỘC
 jobs:
-  test_runner:
+  test_connection:
     # ⚠️ Đảm bảo chạy trên Runner tự host
     runs-on: self-hosted 
 
@@ -14,10 +14,12 @@ jobs:
       - name: Bước 1: Kiểm tra Checkout Code
         uses: actions/checkout@v4
 
-      - name: Bước 2: Chạy lệnh trên máy chủ của bạn
+      - name: Bước 2: Chạy lệnh trên máy chủ Linux
         run: |
-          echo "Bắt đầu tác vụ trên máy chủ của tôi!"
+          echo "Bắt đầu kiểm tra kết nối trên máy chủ của tôi!"
+          echo "Kiểm tra trạng thái Docker..."
+          docker ps -a
           date
 
       - name: Bước 3: Hoàn thành
-        run: echo "Tác vụ đã hoàn thành trên Self-hosted Runner!"
+        run: echo "Kiểm tra Runner đã hoàn thành!"
