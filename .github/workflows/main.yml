@@ -1,12 +1,13 @@
-  name: Tác Vụ Triển Khai Thủ Công
+name: Tác Vụ Triển Khai Thủ Công
 
+# Định nghĩa các sự kiện kích hoạt (Ở đây là thủ công)
 on:
-  # Cho phép chạy workflow này bằng tay (manual trigger)
   workflow_dispatch:
 
+# KHỐI JOBS BẮT BUỘC
 jobs:
   test_runner:
-    # RẤT QUAN TRỌNG: Chỉ định Runner của bạn
+    # ⚠️ Đảm bảo chạy trên Runner tự host
     runs-on: self-hosted 
 
     steps:
@@ -17,7 +18,6 @@ jobs:
         run: |
           echo "Bắt đầu tác vụ trên máy chủ của tôi!"
           date
-          # Thêm các lệnh Linux khác của bạn tại đây
 
       - name: Bước 3: Hoàn thành
         run: echo "Tác vụ đã hoàn thành trên Self-hosted Runner!"
