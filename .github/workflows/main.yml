@@ -1,0 +1,23 @@
+  name: Tác Vụ Triển Khai Thủ Công
+
+on:
+  # Cho phép chạy workflow này bằng tay (manual trigger)
+  workflow_dispatch:
+
+jobs:
+  test_runner:
+    # RẤT QUAN TRỌNG: Chỉ định Runner của bạn
+    runs-on: self-hosted 
+
+    steps:
+      - name: Bước 1: Kiểm tra Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Bước 2: Chạy lệnh trên máy chủ của bạn
+        run: |
+          echo "Bắt đầu tác vụ trên máy chủ của tôi!"
+          date
+          # Thêm các lệnh Linux khác của bạn tại đây
+
+      - name: Bước 3: Hoàn thành
+        run: echo "Tác vụ đã hoàn thành trên Self-hosted Runner!"
